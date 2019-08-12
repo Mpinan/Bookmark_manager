@@ -1,9 +1,15 @@
 require 'sinatra/base'
+require_relative 'lib/bookmark'
 
 class Bookmark < Sinatra::Base
-  
+
   get '/' do
-    'Hello World'
+    erb(:index)
+  end
+
+  get '/bookmarks' do 
+    @bookmark = BookmarkModel.all
+    erb(:bookmark)
   end
 
   run! if app_file == $0

@@ -7,9 +7,10 @@ feature Bookmark do
   scenario 'It display a list of bookmarks' do
     visit '/'
     click_button('Show Bookmarks')
-    expect(page).to have_content('abc')
-    expect(page).to have_content('def')
-    expect(page).to have_content('efg')
+    expect(page).to have_content "http://www.makersacademy.com"
+    expect(page).to have_content 'http://www.askjeeves.com'
+    expect(page).to have_content 'http://www.twitter.com'
+    expect(page).to have_content 'http://www.google.com'
   end
 
 end

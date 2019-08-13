@@ -2,13 +2,12 @@ require 'sinatra/base'
 require_relative 'lib/bookmark'
 
 class Bookmark < Sinatra::Base
-
   get '/' do
     erb(:index)
   end
 
   get '/bookmarks' do 
-    @bookmark = BookmarkModel.all
+    @bookmarks = BookmarkModel.all
     erb(:bookmark)
   end
 

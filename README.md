@@ -1,3 +1,12 @@
+# User stories
+
+As a user 
+So that I can access websites
+I'd like to be able to store websites in a database
+
+As a user
+So that I can see a list of websites
+I'd like to be able to have access to the websites in the database
 # Bookmark_manager
 
 - Connect to psql

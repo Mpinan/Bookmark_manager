@@ -2,29 +2,14 @@ require 'pg'
 
 class BookmarkModel 
   def self.all
+
       
-      con = PG.connect :dbname => 'bookmark_manager', :user => 'student'
+    connection = PG.connect(:dbname => 'bookmark_manager')
       
-      rs = con.exec "SELECT * FROM bookmarks LIMIT 3"
+    result = connection.exec "SELECT * FROM bookmarks;"
 
-      @txt = ""
-
-      rs.each do |row|
-        @txt +=  '%s %s' % [ row['id'], row['url']]
-      end
-
-    #rescue PG::Error => e
-
-      #puts e.message
-      
-
-    #ensure 
-
-      con.close if con
-      @txt
-      
-
-    #end
-
+    result.map do |row|
+      row['url'] 
+    end
   end
 end

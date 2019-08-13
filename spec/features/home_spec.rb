@@ -1,25 +1,22 @@
+require './web_helpers.rb'
 feature Bookmark do
-  # scenario 'It return Hello World' do
-  #   visit '/'
-  #   expect(page).to have_content('Hello World')
-  # end
+  feature 'Showing a list of bookmarks' do
+    scenario 'It display a list of bookmarks' do
+      create
+      visit '/bookmarks'
 
-  scenario 'It display a list of bookmarks' do
-
-    connection = PG.connect(dbname: 'bookmark_manager_test')
-
-    # Add the test data
-    connection.exec("INSERT INTO bookmarks VALUES(1, 'http://www.makersacademy.com');")
-    connection.exec("INSERT INTO bookmarks VALUES(2, 'http://www.askjeeves.com');")
-    connection.exec("INSERT INTO bookmarks VALUES(3, 'http://www.google.com');")
-    connection.exec("INSERT INTO bookmarks VALUES(4, 'http://www.twitter.com');")
-
-    visit '/bookmarks'
-
-    expect(page).to have_content "http://www.makersacademy.com"
-    expect(page).to have_content 'http://www.askjeeves.com'
-    expect(page).to have_content 'http://www.twitter.com'
-    expect(page).to have_content 'http://www.google.com'
+      expect(page).to have_content "http://www.makersacademy.com"
+      expect(page).to have_content 'http://www.askjeeves.com'
+      expect(page).to have_content 'http://www.twitter.com'
+      expect(page).to have_content 'http://www.google.com'
+    end
   end
-
+  feature 'Adding a new bookmark' do
+    scenario 'A user is able to add a new bookmard' do
+      visit('/bookmarks/new')
+      fill_in('url', with: 'http://testbookmark.com')
+      click_button('Submit')
+      expect(page).to have_content 'http://testbookmark.com'
+    end
+  end
 end

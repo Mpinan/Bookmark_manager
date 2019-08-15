@@ -2,7 +2,7 @@ require './web_helpers.rb'
 feature Bookmark do
   feature 'Showing a list of bookmarks' do
     scenario 'It display a list of bookmarks' do
-      create
+      insert
       visit '/bookmarks'
 
       expect(page).to have_content "http://www.makersacademy.com"

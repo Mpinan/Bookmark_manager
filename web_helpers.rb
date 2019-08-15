@@ -1,4 +1,4 @@
-def create
+def insert
 
   #Connects our model with the Database
   connection = PG.connect(dbname: 'bookmark_manager_test')

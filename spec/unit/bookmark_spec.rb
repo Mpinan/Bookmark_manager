@@ -6,7 +6,7 @@ describe BookmarkModel do
   describe "#all"
     it "show a list of bookmarks" do 
 
-      create
+      insert
 
       bookmark = BookmarkModel.all
 

@@ -7,5 +7,5 @@ def setup_test_database
   
   #Clear the bookmarks table
   
-  connection.exec("TRUNCATE bookmarks;")
+  connection.exec("TRUNCATE bookmarks RESTART identity;")
 end

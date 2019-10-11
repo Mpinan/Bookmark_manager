@@ -11,8 +11,8 @@ class BookmarkModel
   end
 
   def self.all
-    
-    if ENV['ENVIRONMENT'] = 'test'
+   
+    if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(:dbname => 'bookmark_manager_test')
     else
       connection = PG.connect(:dbname => 'bookmark_manager')

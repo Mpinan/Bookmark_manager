@@ -9,6 +9,7 @@ class Bookmark < Sinatra::Base
 
   get '/bookmarks' do 
     @bookmarks = BookmarkModel.all
+    p @bookmarks
     erb(:bookmark)
   end
 
